@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { Detail } from '../../models/Detail';
 import { DetailProvider } from '../../providers/detail/detail';
@@ -23,7 +23,6 @@ export class DetailPage {
   avatar: String;
 
   constructor(
-    private navCtrl: NavController,
     private navParams: NavParams,
     private detailsProvider: DetailProvider
   ) {}

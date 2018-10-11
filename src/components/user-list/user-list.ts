@@ -19,7 +19,7 @@ export class UserListComponent {
 
   constructor() {}
 
-  goTo(avatar: String) {
+  onUserSelected(avatar: String) {
     this.itemClicked.emit(avatar);
   }
 }
