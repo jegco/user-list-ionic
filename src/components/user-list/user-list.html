@@ -1,0 +1,5 @@
+<ion-list>
+  <user-item *ngFor="let user of users | async"
+             [user]="user"
+             (itemClicked)="goTo($event)"></user-item>
+</ion-list>

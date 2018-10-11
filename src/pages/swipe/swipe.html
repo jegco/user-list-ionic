@@ -1,0 +1,21 @@
+<!--
+  Generated template for the SwipePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>swipe</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding
+             (swipe)="onAvatarSwipe($event)">
+  <ion-avatar>
+    <img class="avatar-image"
+         [src]="avatar" />
+  </ion-avatar>
+  <user-list [users]="users"
+             (itemClicked)="goTo($event)"></user-list>
+</ion-content>

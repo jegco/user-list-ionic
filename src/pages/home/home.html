@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Users
+    </ion-title>
+    <ion-buttons end>
+      <button (click)="goToSwipe()">
+        <ion-icon name="navigate"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="getUsers($event)"></ion-refresher>
+  <user-list [users]="users"
+             (itemClicked)="goTo($event)"></user-list>
+</ion-content>
