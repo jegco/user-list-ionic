@@ -25,7 +25,7 @@ export class HomePage {
     this.userProvider.getUSers().subscribe((users) => {
       this.users = users;
       if (refresher != null) {
-        // refresher.complete();
+        refresher.complete();
       }
     });
   }
