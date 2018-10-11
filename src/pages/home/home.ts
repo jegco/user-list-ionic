@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { UserProvider } from '../../providers/user/user';
-import { Observable } from 'rxjs/Observable';
 import { User } from '../../models/User';
+import { UserProvider } from '../../providers/user/user';
 import { DetailPage } from '../detail/detail';
 import { SwipePage } from '../swipe/swipe';
 
@@ -11,7 +10,7 @@ import { SwipePage } from '../swipe/swipe';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  users: Observable<User[]>;
+  users: User[];
 
   constructor(
     public navCtrl: NavController,
@@ -23,10 +22,12 @@ export class HomePage {
   }
 
   getUsers(refresher) {
-    this.users = this.userProvider.getUSers();
-    if (refresher != null) {
-      refresher.complete();
-    }
+    this.userProvider.getUSers().subscribe((users) => {
+      this.users = users;
+      if (refresher != null) {
+        // refresher.complete();
+      }
+    });
   }
 
   goTo(avatarUrl: String) {
@@ -36,10 +37,8 @@ export class HomePage {
   }
 
   goToSwipe() {
-    this.users.subscribe((users: User[]) => {
       this.navCtrl.push(SwipePage, {
         users: this.users
       });
-    });
   }
 }

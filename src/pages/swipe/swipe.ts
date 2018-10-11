@@ -1,7 +1,7 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Observable } from 'rxjs/Observable';
 import { User } from '../../models/User';
+import { pageParameters } from '../../utils/constants';
 import { DetailPage } from '../detail/detail';
 
 @IonicPage()
@@ -10,7 +10,7 @@ import { DetailPage } from '../detail/detail';
   templateUrl: 'swipe.html'
 })
 export class SwipePage {
-  users: Observable<User[]>;
+  users: User[];
 
   @Output()
   itemClicked: EventEmitter<String> = new EventEmitter();
@@ -20,7 +20,7 @@ export class SwipePage {
   constructor(private navCtrl: NavController, private navParams: NavParams) {}
 
   ionViewDidLoad() {
-    this.users = this.navParams.get('users');
+    this.users = this.navParams.get(pageParameters.users);
     this.chooseRandomAvatar();
   }
 
@@ -29,9 +29,7 @@ export class SwipePage {
   }
 
   chooseRandomAvatar() {
-    this.users.subscribe((users: User[]) => {
-      this.avatar = users[Math.floor(Math.random() * users.length)].avatar;
-    });
+      this.avatar = this.users[Math.floor(Math.random() * this.users.length)].avatar;
   }
 
   goTo(avatar: String) {

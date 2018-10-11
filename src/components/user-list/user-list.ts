@@ -1,7 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from '../../models/User';
-import { UserProvider } from '../../providers/user/user';
-import { Observable } from 'rxjs/Observable';
 /**
  * Generated class for the UserListComponent component.
  *
@@ -14,7 +12,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class UserListComponent {
   @Input()
-  users: Observable<User[]>;
+  users: User[];
 
   @Output()
   itemClicked: EventEmitter<String> = new EventEmitter();

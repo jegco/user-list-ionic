@@ -1,4 +1,4 @@
 export const pageParameters = {
-  avatar: 'avatarUrl',
-  avatars: 'avatarsUrl'
+  avatar: 'avatar',
+  users: 'users'
 };
